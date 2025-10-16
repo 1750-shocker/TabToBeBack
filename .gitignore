@@ -3,11 +3,17 @@
 *.ap_
 *.aab
 
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
 # Generated files
 bin/
 gen/
 out/
-release/
+#release/
 
 # Gradle files
 .gradle/
@@ -28,7 +34,7 @@ proguard/
 # Android Studio captures folder
 captures/
 
-# IntelliJ
+# IntelliJ/Android Studio
 *.iml
 .idea/workspace.xml
 .idea/tasks.xml
@@ -36,14 +42,12 @@ captures/
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
+# Android Studio 3 in .gitignore file.
 .idea/caches/
 .idea/modules.xml
 .idea/navEditor.xml
-
-# Android Studio 3 in .gitignore file.
-.idea/caches/build_file_checksums.ser
-.idea/modules.xml
-
+# Comment next line if keeping position of elements in Navigation Editor is relevant
+.idea/navEditor.xml
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
 #*.jks
@@ -81,27 +85,27 @@ lint/tmp/
 # Android Profiling
 *.hprof
 
+# NDK
+obj/
+
+# IntelliJ IDEA
+.idea/caches/build_file_checksums.ser
+
 # macOS
 .DS_Store
 .DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
-Thumbs.db
 
 # Windows
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+$RECYCLE.BIN/
 
 # Linux
 *~
-
-# Temporary files created by R
-*.Rout
-*.Rhistory
-*.RData
 
 # Backup files
 *.bak
@@ -115,7 +119,41 @@ Desktop.ini
 app/release/
 app/debug/
 
+# Kotlin Multiplatform Mobile
+.kotlin/
+
 # Misc
 *.swp
 *.swo
 *~
+
+# Android Studio specific
+.idea/deploymentTargetDropDown.xml
+.idea/render.experimental.xml
+
+# Gradle Wrapper
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
