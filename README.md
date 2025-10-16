@@ -29,13 +29,61 @@
 
 ## 使用说明
 
-### 安装和设置
+### 普通Android设备安装和设置
 
 1. 安装APK文件到Android设备
 2. 打开应用，按照界面提示授予权限：
    - 点击"授权"按钮申请悬浮窗权限
    - 点击"授权"按钮开启无障碍服务
 3. 所有权限授予后，点击"启动服务"
+
+### 车机系统安装和设置 🚗
+
+**如果在车机上遇到权限授权问题（点击授权按钮闪退或提示无法处理），可以使用ADB命令解决：**
+
+#### 前提条件
+- 车机支持ADB调试
+- 通过USB连接车机和电脑
+- 已启用车机的开发者选项和USB调试
+
+#### ADB授权步骤
+
+1. **连接设备**
+```bash
+# 检查设备连接
+adb devices
+```
+
+2. **授予悬浮窗权限**
+```bash
+# 打开悬浮窗权限
+adb shell appops set com.gta.tabtobeback SYSTEM_ALERT_WINDOW allow
+```
+
+3. **启用无障碍服务**
+```bash
+# 首先启用无障碍功能总开关
+adb shell settings put secure accessibility_enabled 1
+
+# 然后启用我们的无障碍服务
+adb shell settings put secure enabled_accessibility_services com.gta.tabtobeback/com.gta.tabtobeback.service.BackButtonAccessibilityService
+```
+
+4. **验证权限**
+```bash
+# 检查悬浮窗权限
+adb shell appops get com.gta.tabtobeback SYSTEM_ALERT_WINDOW
+
+# 检查无障碍服务
+adb shell settings get secure enabled_accessibility_services
+```
+
+5. **测试应用**
+- 重启"悬浮返回"应用
+- 点击"刷新权限状态"确认权限已授予
+- 点击"启动服务"开始使用
+
+**注意：** 车机系统通常是定制化Android，部分标准权限界面可能被移除或修改，使用ADB是最可靠的授权方式。
 
 ### 使用方法
 
@@ -95,6 +143,20 @@ app/src/main/java/com/gta/tabtobeback/
 2. **系统兼容性**：适用于Android 10及以上版本
 3. **电池优化**：建议将应用加入电池优化白名单，避免被系统杀死
 4. **无障碍服务**：无障碍服务可能会被系统自动关闭，需要定期检查
+5. **车机系统**：车机等定制系统可能需要使用ADB命令授权，详见上方车机安装说明
+
+## 设备兼容性
+
+### ✅ 已测试兼容
+- 标准Android设备（Android 10+）
+- 车机系统（通过ADB授权）
+
+### ⚠️ 可能需要特殊处理
+- 深度定制的Android系统
+- 某些品牌的定制ROM
+- 企业版或教育版Android设备
+
+如遇到权限问题，请参考 [TROUBLESHOOTING.md](TROUBLESHOOTING.md) 获取详细解决方案。
 
 ## 安全说明
 
