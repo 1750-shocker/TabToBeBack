@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">悬浮返回</string>
+    <string name="accessibility_service_description">提供悬浮返回按钮功能，点击悬浮按钮可执行返回操作</string>
+    <string name="permission_overlay_title">需要悬浮窗权限</string>
+    <string name="permission_overlay_message">请允许应用显示在其他应用上层，以便显示悬浮返回按钮</string>
+    <string name="permission_accessibility_title">需要无障碍权限</string>
+    <string name="permission_accessibility_message">请开启无障碍服务，以便执行返回操作</string>
+    <string name="service_running">悬浮返回服务正在运行</string>
+    <string name="service_stopped">悬浮返回服务已停止</string>
+    <string name="start_service">启动服务</string>
+    <string name="stop_service">停止服务</string>
+    <string name="request_permissions">申请权限</string>
+    <string name="all_permissions_granted">所有权限已授予</string>
+    <string name="overlay_permission_required">需要悬浮窗权限</string>
+    <string name="accessibility_permission_required">需要无障碍权限</string>
+</resources>
